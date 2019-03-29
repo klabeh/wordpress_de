@@ -57,7 +57,7 @@ RUN a2enmod rewrite expires
 VOLUME /var/www/html
 
 RUN set -ex; \
-	curl -o wordpress.tar.gz -fSL "https://de.wordpress.org/latest-de_DE.tar.gz"; \
+	curl -o wordpress.tar.gz -fSL "https://de.wordpress.org/wordpress-5.1.1-de_DE.tar.gz"; \
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
 	tar -xzf wordpress.tar.gz -C /usr/src/; \
 	rm wordpress.tar.gz; \
