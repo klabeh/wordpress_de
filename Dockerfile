@@ -56,8 +56,12 @@ RUN a2enmod rewrite expires
 
 VOLUME /var/www/html
 
+ENV WORDPRESS_VERSION 5.1.1
+ENV WORDPRESS_SHA1 f6d0764a930d4361187f3c4a1019c6455eb8b7fc
+
 RUN set -ex; \
 	curl -o wordpress.tar.gz -fSL "https://de.wordpress.org/wordpress-5.1.1-de_DE.tar.gz"; \
+	echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c -; \
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
 	tar -xzf wordpress.tar.gz -C /usr/src/; \
 	rm wordpress.tar.gz; \
